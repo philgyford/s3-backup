@@ -1,0 +1,14 @@
+-i https://pypi.org/simple
+awscli==1.16.259
+botocore==1.12.249
+colorama==0.4.1 ; python_version != '2.6' and python_version != '3.3'
+docutils==0.15.2
+jmespath==0.9.4
+pyasn1==0.4.7
+python-dateutil==2.8.0 ; python_version >= '2.7'
+pyyaml==5.1.2
+rsa==3.4.2
+s3transfer==0.2.1
+six==1.12.0
+sultan==0.9.1
+urllib3==1.25.6 ; python_version >= '3.4'

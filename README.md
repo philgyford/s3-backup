@@ -2,6 +2,12 @@
 
 For backing up S3 buckets to local folders using python 3.
 
+It uses the [AWS Command Line Interface][aws-cli] which can download the
+contents of S3 buckets/folders to local folders on its own. But, if you have
+several things to backup, and want to do so repeatedly, then you'll need to put
+those commands into a single shell script or else use this more complicated
+python-based configuration and script. Hmm. Anyway.
+
 There are four steps to backup happiness...
 
 
@@ -102,6 +108,7 @@ that would be downloaded, but nothing is downloaded:
 $ ./backup.py --dryrun
 ```
 
+[aws-cli]: https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html
 [pip]: https://pip.pypa.io/en/stable/
 [pipenv]: https://pipenv.readthedocs.io/en/latest/
 [yaml]: https://gettaurus.org/docs/YAMLTutorial/

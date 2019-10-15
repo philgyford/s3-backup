@@ -10,10 +10,10 @@ There are four steps to backup happiness...
 Check out the code and install requirements, either with [pip][pip]:
 
 ```shell
-% pip install -r requirements.txt
+$ pip install -r requirements.txt
 ```
 
-Or [pipenv][https://pipenv.readthedocs.io/en/latest/]:
+Or [pipenv][pipenv]:
 
 ```shell
 $ pipenv install
@@ -49,7 +49,7 @@ my-database-backups:
 The starting `---` line is an optional YAML start marker. Note that indention
 is important with YAML. [Here's a tutorial.][yaml]
 
-The top-level list items (like `mysite-production` are profile names, as used
+The top-level list items (such as `mysite-production`) are profile names, as used
 when setting up AWS credentials (see below).
 
 Each one has a `paths` list. That contains one or more dictionaries with the
@@ -58,16 +58,16 @@ following keys:
 * `remote` – The path to an S3 bucket, or folder within a bucket, to be backed
     up.
 
-* `local` – The local filesystem path to a folder into which the files
+* `local` – The path to a folder on the local filesystem into which the files
     from `remote` will be put.
 
 * `delete` – By default local files will not be deleted if they don't exist in
-    the remote bucket. Setting this to `delete` to `yes`, `on`, `true`, `1`,
-    [etc.][bool] will delete local files so that the backup matches the
+    the remote bucket. Setting `delete` to `yes`, `true`, `1`,
+    [etc.][bool] will delete local files so that the local copy matches the
     contents of the remote bucket or folder exactly.
 
 If there are problems with your YAML file, use [a validator][validator] to make
-sure it's OK. 
+sure it's OK.
 
 
 ## 3. Set up AWS credentials
@@ -99,9 +99,16 @@ that would be downloaded, but nothing is downloaded:
 $ ./backup.py --dryrun
 ```
 
-
 [pip]: https://pip.pypa.io/en/stable/
+[pipenv]: https://pipenv.readthedocs.io/en/latest/
 [yaml]: https://gettaurus.org/docs/YAMLTutorial/
 [bool]: https://yaml.org/type/bool.html
 [validator]: https://yaml.org/type/bool.html
 [aws-config]: https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html#cli-quick-configuration-multi-profiles
+
+----
+
+From: https://github.com/philgyford/s3-backup  
+By: Phil Gyford  
+Email: phil@gyford.com  
+Website: https://www.gyford.com

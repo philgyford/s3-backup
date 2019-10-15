@@ -76,7 +76,7 @@ For each AWS account, set up the credentials as a named profile using the `aws`
 command, as [described in the docs][aws-config]:
 
 ```shell
-$ aws configure --profile hines-production
+$ aws configure --profile mysite-production
 AWS Access Key ID [None]: YOURKEYHERE
 AWS Secret Access Key [None]: YOURSECRETKEYHERE
 Default region name [None]: eu-west-2

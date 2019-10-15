@@ -79,9 +79,12 @@ command, as [described in the docs][aws-config]:
 $ aws configure --profile mysite-production
 AWS Access Key ID [None]: YOURKEYHERE
 AWS Secret Access Key [None]: YOURSECRETKEYHERE
-Default region name [None]: eu-west-2
+Default region name [None]: your-region
 Default output format [None]: text
 ```
+
+The region is something like `us-east-1` or `eu-west-2`. I'm not sure that it's
+needed in this situation, for only downloading things.
 
 The profile name should match the name(s) used in `config.yaml` exactly.
 

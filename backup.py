@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import argparse
+from datetime import datetime, timedelta
 import logging
 import os
 import time
@@ -62,13 +63,32 @@ class S3Backup:
                     "s3 sync {remote} {local} --profile={profile} --no-progress"
                 ).format(remote=paths["remote"], local=paths["local"], profile=profile)
 
+                args = []
+
                 if "delete" in paths and paths["delete"] is True:
                     # Delete local files that don't exist on S3:
-                    command += " --delete"
+                    args.append("--delete")
+
+                if "include-only" in paths:
+                    includes = []
+                    if "today" in paths["include-only"]:
+                        fmt = paths["include-only"]["today"]
+                        dt = datetime.utcnow()
+                        includes.append("--include '{}'".format(dt.strftime(fmt)))
+                    if "yesterday" in paths["include-only"]:
+                        fmt = paths["include-only"]["yesterday"]
+                        dt = datetime.utcnow() - timedelta(1)
+                        includes.append("--include '{}'".format(dt.strftime(fmt)))
+
+                    if len(includes) > 0:
+                        args.append(" --exclude '*'")
+                        args.extend(includes)
 
                 if self.dryrun is True:
                     # The aws command has its own dryrun option, handily:
-                    command += " --dryrun"
+                    args.append("--dryrun")
+
+                command = "{} {}".format(command, " ".join(args))
 
                 with Sultan.load() as s:
                     result = s.aws(command).run(streaming=True)

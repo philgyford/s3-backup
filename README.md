@@ -1,6 +1,6 @@
 # S3 Backup
 
-For backing up S3 buckets to local folders using python 3.
+For backing up S3 buckets to local folders using Python 3.
 
 It uses the [AWS Command Line Interface][aws-cli] which can download the
 contents of S3 buckets/folders to local folders on its own. But, if you have
@@ -27,11 +27,10 @@ Check out the code and install requirements, either with [pip][pip]:
 $ pip install -r requirements.txt
 ```
 
-Or [pipenv][pipenv]:
+Or [uv][uv]:
 
 ```shell
-$ pipenv install
-$ pipenv shell
+$ uv sync
 ```
 
 
@@ -143,7 +142,7 @@ $ ./backup.py --dryrun
 
 [aws-cli]: https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html
 [pip]: https://pip.pypa.io/en/stable/
-[pipenv]: https://pipenv.readthedocs.io/en/latest/
+[uv]: https://github.com/astral-sh/uv
 [yaml]: https://gettaurus.org/docs/YAMLTutorial/
 [bool]: https://yaml.org/type/bool.html
 [strftime]: http://strftime.org

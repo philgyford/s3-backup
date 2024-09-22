@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## [1.2.0] - 2023-09-22
+
+- Switch to using uv instead of pipenv for dependency management.
+
 ## [1.1.0] - 2019-11-02
 
 * Added the `today` and `yesterday` config settings for restricting syncing to

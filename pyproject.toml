@@ -1,0 +1,7 @@
+[project]
+name = "s3-backup"
+version = "1.2.0"
+description = "A python 3 script for backing up S3 buckets and folders to a local filesystem"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = ["awscli", "sultan"]

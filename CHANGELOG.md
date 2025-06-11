@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## [1.3.0] - 2025-06-11
+
+- Update to Python 3.13
+- Update dependencies
+
 ## [1.2.0] - 2023-09-22
 
 - Switch to using uv instead of pipenv for dependency management.

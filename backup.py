@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 import argparse
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, UTC
 import logging
 import os
 import time
@@ -73,11 +73,11 @@ class S3Backup:
                     includes = []
                     if "today" in paths["include-only"]:
                         fmt = paths["include-only"]["today"]
-                        dt = datetime.utcnow()
+                        dt = datetime.now(UTC)
                         includes.append("--include '{}'".format(dt.strftime(fmt)))
                     if "yesterday" in paths["include-only"]:
                         fmt = paths["include-only"]["yesterday"]
-                        dt = datetime.utcnow() - timedelta(1)
+                        dt = datetime.now(UTC) - timedelta(1)
                         includes.append("--include '{}'".format(dt.strftime(fmt)))
 
                     if len(includes) > 0:
